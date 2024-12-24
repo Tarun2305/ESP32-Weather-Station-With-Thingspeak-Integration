@@ -1,28 +1,28 @@
-# ESP32 Weather Station With Thingspeak Integration
-A weather monitoring station using ESP32 and DHT11 sensor that uploads temperature and humidity data to ThingSpeak.
+# ESP32-Weather-Station-With-Thingspeak-Integration
 
-## Components Used
+An ESP32-based weather station that reads temperature and humidity from a DHT11 sensor and uploads the data to ThingSpeak.
+
+## Hardware Required
 - ESP32 Development Board
 - DHT11 Temperature & Humidity Sensor
-- Jumper Wires
+- Jumper wires
 
 ## Setup
-1. Install required libraries:
+1. Connect the DHT11 sensor to your ESP32:
+   - VCC to 3.3V
+   - GND to GND
+   - Data to GPIO2 (or change pin in code)
+
+2. Install required libraries (Arduino IDE):
    - DHT11
    - ThingSpeak
-   - WiFi
-2. Configure your WiFi credentials
-3. Set up a free ThingSpeak account and create a channel
-4. Update the code with your ThingSpeak channel details
 
-## Configuration
-Before uploading the code, update these variables:
-- WiFi SSID and password
-- ThingSpeak channel number
-- ThingSpeak API key
+3. Fill in your credentials in the code:
+   - WiFi SSID and password
+   - ThingSpeak channel number
+   - ThingSpeak write API key
 
 ## Features
-- Reads temperature and humidity every minute (can be changed, of course)
-- Automatically reconnects to WiFi if connection is lost
-- Non-blocking code using millis() for timing
-As a side note, there is a 15 second delay between the upload of the temperature and the humidity, this is because ThingSpeak requires a minimum of 15 seconds between entries.
+- Reads temperature and humidity every minute
+- Automatic WiFi reconnection
+- Non-blocking code using millis()
